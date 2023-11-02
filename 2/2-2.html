@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 알고리즘</title>
+</head>
+<body>
+보이는 학생 (130, 135, 148, 140, 145, 150, 150, 153) => 5명
+<script>
+  //입력 : 첫줄에 정수 N이 입력된다. 그다음줄에 N명의 학생의 키가 앞에서부터 순서대로 주어진다.
+  //출력 : 선생님이 볼 수 있는 최대학생수를 출력한다.
+    function solution(arr){
+        let answer=1;       // 첫번째 학생수
+        let max=arr[0];     // 첫번째 학생 키 저장
+        for(let i=1; i<arr.length; i++){
+            if(max < arr[i]){
+                max = arr[i];       // 두번째 학생 부터 앞에 학생보다 크면 큰키로 수정
+                answer = answer+1;  // 보이는 학생 수 세기
+                //console.log(max);
+                //console.log(answer);
+            }
+        }
+
+        return answer;
+    }
+
+    let arr=[130, 135, 148, 140, 145, 150, 150, 153];
+    console.log(solution(arr));
+</script>
+</body>
+</html>
