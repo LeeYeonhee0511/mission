@@ -5,7 +5,7 @@
     <title>자바스크립트 알고리즘</title>
 </head>
 <body>
-큰 수 출력하기 ( 7 3 9 5 6 12) => 9 12
+자신의 앞의 수보다 큰 수 출력하기
 <script>
    //N(1<=N<=100)개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 수만 출력하는 프로그램을 작성하세요.
    //(첫번째 수는 무조건 출력한다)
@@ -13,9 +13,10 @@
    //출력 : 자신의 바로 앞 수보다 큰 수만 한줄로 출력한다.
     function solution(arr){
         let answer=[];
-        let first = arr[0]; // 첫번째 숫자 저장
+        answer.push(arr[0]); // 첫번째 숫자는 무조건저장
+
         for(let i = 1; i < arr.length; i++){    // 2번째 수부터 비교
-            if(first < arr[i]){     // 첫번째 수보다 큰 수만 저장
+            if(arr[i] > arr[i-1]){     // 바로앞에 수보다 큰 수만 저장
                 answer.push(arr[i]);
             }
         }
@@ -23,13 +24,9 @@
         return answer;
     }
 
-    let arr=[7, 3, 9, 5, 6, 12];
-    ret = solution(arr);
-   // console.log(ret);
-    //console.log(solution(arr));
-    for(let i=0; i< ret.length; i++){
-        console.log(ret[i]);            // 첫번째 수보다 큰수만 출력
-    }
+    let arr=[8, 7, 3, 9, 5, 5, 12,11,13];
+   console.log(solution(arr));
+
 
 </script>
 </body>
