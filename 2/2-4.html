@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 알고리즘</title>
+</head>
+<body>
+점수계산 (연속 정답시 가산점추가)
+
+<script>
+    function solution(arr){
+        let answer=0, cnt=0;
+
+        for(let i=0; i<arr.length; i++){
+
+            if(arr[i] === 1){   // 정답이면
+                cnt++;        // 가산첨 추가
+                answer = answer + cnt;
+            }else{
+                cnt = 0;        // 오답이면 가산점 초기화
+            }
+            //console.log(arr[i] + " : " +cnt + " : " +answer);
+        }
+        return answer;
+    }
+
+    // 문제의 채점결과 (0:오답, 1:정답)
+    let arr=[0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+    //let arr=[0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0,1,0,1,1,1];
+    // 가산점을 고려한 총 점수를 출력
+    // 1+1+2+3+1+2=10점
+    console.log("총점수 : " + solution(arr));
+</script>
+</body>
+</html>
