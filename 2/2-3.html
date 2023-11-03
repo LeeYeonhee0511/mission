@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 알고리즘</title>
+</head>
+<body>
+가위바위보 A,B 두사람이 N번의 게임 후 이긴사람 출력 (1:가위, 2:바위, 3:보)
+<script>
+    // 입력:첫번째줄에 게임 횟수인 자연수 N(1<=N<=100)이 주어진다.
+    //      두번째줄에는 A가 낸 가위,바위,보 정보가 N개 주어진다.
+    //      세번째줄에는 B가 낸 가위,바위,보 정보가 N개 주어진다.
+    // 출력: 각줄에 각회의 승자를 출력한다. 비겼을경우는 D를 출력한다.
+
+    function solution(a, b){
+        let answer=[];
+
+        for(let i=0; i<a.length; i++){  // 게임 횟수만큼 비교하기
+            if(a[i] === b[i]){          // 비겼을 경우 D 출력
+                answer.push("D");
+                continue;
+            }
+            // a 기준으로 비교 시작
+            switch (a[i]) {
+                case 1 :    // a가 1(가위): b가 3(보)이면 A, 2(바위)면 B
+                    (b[i] === 3) ? answer.push("A") : answer.push("B");
+                     break;
+                case 2 :    // a가 2(바위): b가 1(가위)면 A, 3(바위)이면 B
+                    (b[i] === 1) ? answer.push("A") : answer.push("B");
+                        break;
+                case 3 :    // a가 3(보): b가 2(바위)이면 A, 1(가위)이면 B
+                    (b[i] === 2) ? answer.push("A") : answer.push("B");
+                    break;
+            }
+        }
+        return answer;
+    }
+
+    let a=[2, 3, 3, 1, 3];
+    let b=[1, 1, 2, 2, 3];
+    console.log(solution(a, b));
+
+</script>
+</body>
+</html>
