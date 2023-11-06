@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 알고리즘</title>
+</head>
+<body>
+격자판 최대합
+<script>
+    function solution(arr){
+        let answer=Number.MIN_SAFE_INTEGER;
+        let answer1=Number.MIN_SAFE_INTEGER;
+        let answer2=Number.MIN_SAFE_INTEGER;
+
+        let n=arr.length;
+        let sum1=sum2=sum3=sum4=0;
+
+        for(let i=0,j=n-1; i<n,j>=0; i++,j--){
+            sum1 += arr[i][i];      // 대각선의 합1
+            sum2 += arr[i][j];      // 대각선의 합2
+            //console.log(arr[i][j]+": sum2="+sum2);
+
+            for(let k=0; k<n; k++){
+                sum3 += arr[i][k];      // 가로합
+                sum4 += arr[k][i];      // 세로합
+            }
+
+            //console.log("가로합="+sum3);
+           // console.log("세로합="+sum4);
+            //가로합 중에 큰값 비교
+            answer1 = Math.max(answer1,sum3);
+            answer2 = Math.max(answer2,sum4);
+            //console.log("가로합중에 최대="+answer1);
+            //console.log("세로합중에 최대="+answer2);
+            sum3=0,sum4=0;
+
+        }
+        // 가로(answer),세로(answer2) 두 대각선(sum1,sum2) 의 합 중에 큰값 저장
+        answer = Math.max(answer,answer2,sum1,sum2);
+
+        console.log(arr);
+        console.log("length="+n);
+        console.log("대각선1최대합="+sum1);
+        console.log("대각선2최대합="+sum2);
+        console.log("가로합중에 최대="+answer1);
+        console.log("세로합중에 최대="+answer2);
+
+        return answer;
+    }
+
+    //N*N 격자판
+    let arr=[[10, 13, 10, 12, 15],
+        [12, 59, 30, 23, 11],
+        [11, 25, 70, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19]];
+
+    console.log("최대합: "+solution(arr));
+</script>
+</body>
+</html>
