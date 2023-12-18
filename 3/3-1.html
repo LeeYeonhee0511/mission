@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 알고리즘</title>
+</head>
+<body>
+<script>
+
+    function solution(s){
+        let answer="YES";
+        let strA = [];
+        let strB = [];
+        let strtmp = [];
+
+        // 입력받은 문자열 소문자로 변경
+        s = s.toLowerCase();
+        strtmp = s.split("");
+        strA = s.split("");
+        console.log("strtmp:"+strtmp);
+
+
+        // 문자열 거꾸로 새로저장.
+        strB = strtmp.reverse();
+        console.log("strA:"+strA);
+        console.log("strB:"+strB);
+
+        // 문자열 비교
+        if(strA.toString() === strB.toString()){
+            answer = "YES";
+        }
+        else{
+            answer = "NO";
+        }
+
+
+        return answer;
+    }
+
+    // 입력 문자열
+    let str="gooGD";
+    console.log(solution(str));
+</script>
+</body>
+</html>
