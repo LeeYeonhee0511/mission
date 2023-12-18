@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>자바스크립트 알고리즘(3-1)</title>
+    <title>자바스크립트(3-2)</title>
 </head>
 <body>
 <script>
-
     function solution(s){
         let answer="YES";
         let strA = [];
         let strB = [];
 
         // 입력받은 문자열 소문자로 변경
-        s = s.toLowerCase();
+        s = s.replaceAll(/[^a-zA-Z]/g, '').toLowerCase();
         strA = s.split("");
-        strB = s.split("").reverse(); // 문자열 거꾸로
+        strB = s.split("").reverse();   // 문자열을 거꾸로
 
         console.log("strA: "+strA);
         console.log("strB: "+strB);
@@ -28,12 +27,10 @@
             answer = "NO";
         }
 
-
         return answer;
     }
 
-    // 입력 문자열
-    let str="gooGD";
+    let str="found7, time: study; Yduts; emit, 7DnuofQ";
     console.log(solution(str));
 </script>
 </body>
