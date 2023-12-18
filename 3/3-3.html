@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트(3-3)</title>
+</head>
+<body>
+<script>
+    function solution(str){
+        let answer="";
+
+        // 숫자를 제외한 모든문자는 공백처리
+        const numchk = /[^0-9]/g;
+        answer = str.replace(numchk,"");
+
+        // 숫자형태로 반환
+        return parseInt(answer);
+    }
+
+    let str="g0en2T0s8eSoft";
+    console.log(solution(str));
+</script>
+</body>
+</html>
